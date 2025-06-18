@@ -13,6 +13,11 @@ class BaiscInit():
     # Functino for setting the title of the program
     def set_title(name: str):
         pygame.display.set_caption(name)
+    
+    # Set the icon of the window 
+    def set_icon(file):
+        icon = pygame.image.load(f"/assets/{icon.png}")
+        pygame.display.set_icon(icon)
 
 def main():
     # Making a window
