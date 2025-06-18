@@ -15,18 +15,27 @@ class BaiscInit():
         pygame.display.set_caption(name)
     
     # Set the icon of the window 
-    def set_icon(file):
-        icon = pygame.image.load(f"/assets/{icon.png}")
+    def set_icon():
+        icon = pygame.image.load("icon.png")
         pygame.display.set_icon(icon)
+
+class Player(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.image.load('assets/player.png').convert_alpha
+        self.rect = self.image.get_rect(midbottom = (600, 300))
+
+
 
 def main():
     # Making a window
     screen = BaiscInit.set_screen(800, 600)
     
     # Title 
-    BaiscInit.set_title(Space Invader)
-
+    BaiscInit.set_title("Space Invader")
+    
     # this var determines if the program is running
+     
     running = True
     
     # game loop
@@ -36,6 +45,11 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
                 sys.exit()
+        
+        # setting the screen color to grey 
+        screen.fill((50, 50, 50))
+
+        pygame.display.flip()
 
 if __name__ == '__main__':
     main()
