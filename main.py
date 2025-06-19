@@ -16,7 +16,7 @@ class BaiscInit():
     
     # Set the icon of the window 
     def set_icon():
-        icon = pygame.image.load("icon.png")
+        icon = pygame.image.load("assets/icon.png")
         pygame.display.set_icon(icon)
 
 
