@@ -19,11 +19,14 @@ class BaiscInit():
         icon = pygame.image.load("icon.png")
         pygame.display.set_icon(icon)
 
+
+# Sprite Class for The main player 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.image.load('assets/player.png').convert_alpha
         self.rect = self.image.get_rect(midbottom = (600, 300))
+
 
 
 
