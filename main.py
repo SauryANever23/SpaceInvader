@@ -37,8 +37,11 @@ def main():
     # Title 
     BaiscInit.set_title("Space Invader")
     
-    # this var determines if the program is running
-     
+    # Player 
+    # To add a player 
+    # Then adding fcuntions to the play 
+
+    # this var determines if the program is running 
     running = True
     
     # game loop
