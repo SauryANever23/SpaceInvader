@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.image.load('assets/main.png').convert_alpha()
-        self.rect = self.image.get_rect(midbottom = (600, 300))
+        self.rect = self.image.get_rect(midbottom = (412, 580))
 
 
 def main():
@@ -52,6 +52,9 @@ def main():
         
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
+        
+        # Displaying the character in the game 
+        screen.blit(player.image, player.rect)
 
         pygame.display.flip()
 
