@@ -6,15 +6,18 @@ pygame.init()
 class BaiscInit():
     
     # Function for Initializing the window
+    @staticmethod
     def set_screen(lenght: int, bredth: int):
         screen = pygame.display.set_mode((lenght, bredth))
         return screen
     
     # Functino for setting the title of the program
+    @staticmethod
     def set_title(name: str):
         pygame.display.set_caption(name)
     
     # Set the icon of the window 
+    @staticmethod
     def set_icon():
         icon = pygame.image.load("assets/main.png")
         pygame.display.set_icon(icon)
@@ -27,6 +30,11 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load('assets/main.png').convert_alpha()
         self.rect = self.image.get_rect(midbottom = (412, 580))
 
+class Bullets(pygame.sprite.Sprite):
+    def __init__(self, player_x, player_y):
+        super().__init__()
+        self.image = pygame.image.load('assets/bullet.png').convert_alpha()
+        self.rect = self.image.get_rect(midbottom = (player_x, player_y))
 
 def main():
     # Making a window
@@ -37,7 +45,7 @@ def main():
     
     # the plater 
     player = Player()
-
+    
 
     # this var determines if the program is running 
     running = True
@@ -57,11 +65,20 @@ def main():
                     player.rect.x -= 20
                 if event.key == pygame.K_q:
                     sys.exit()
+
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
         # Displaying the character in the game 
         screen.blit(player.image, player.rect)
+
+        # The bullet inside the game loop 
+        bullet = Bullets(player.rect.x, player.rect.y)
+
+        # Displaying the bullet 
+        screen.blit(bullet.image, bullet.rect)
+        
+        # Making the bullet move 
 
         pygame.display.flip()
 
