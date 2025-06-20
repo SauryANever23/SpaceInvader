@@ -49,7 +49,14 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
                 sys.exit()
-        
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_d:
+                    player.rect.x += 20
+                if event.key == pygame.K_a:
+                    player.rect.x -= 20
+                if event.key == pygame.K_q:
+                    sys.exit()
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
