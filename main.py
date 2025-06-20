@@ -34,7 +34,7 @@ class Bullets(pygame.sprite.Sprite):
     def __init__(self, player_x, player_y):
         super().__init__()
         self.image = pygame.image.load('assets/bullet.png').convert_alpha()
-        self.rect = self.image.get_rect(midbottom = (player_x, player_y))
+        self.rect = self.image.get_rect(center = (player_x+32, player_y+30))
 
 def main():
     # Making a window
@@ -65,7 +65,9 @@ def main():
                     player.rect.x -= 20
                 if event.key == pygame.K_q:
                     sys.exit()
-
+        print(player.rect.x)
+        if player.rect.x > 800:
+            player.rect.x = 800
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
@@ -78,7 +80,8 @@ def main():
         # Displaying the bullet 
         screen.blit(bullet.image, bullet.rect)
         
-        # Making the bullet move 
+        # Making the bullet move
+        bullet.rect.y -= 5
 
         pygame.display.flip()
 
