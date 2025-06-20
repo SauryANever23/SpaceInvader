@@ -24,10 +24,8 @@ class BaiscInit():
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load('assets/player.png').convert_alpha
+        self.image = pygame.image.load('assets/main.png').convert_alpha()
         self.rect = self.image.get_rect(midbottom = (600, 300))
-
-
 
 
 def main():
@@ -37,9 +35,9 @@ def main():
     # Title 
     BaiscInit.set_title("Space Invader")
     
-    # Player 
-    # To add a player 
-    # Then adding fcuntions to the play 
+    # the plater 
+    player = Player()
+
 
     # this var determines if the program is running 
     running = True
