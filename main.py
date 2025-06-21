@@ -25,16 +25,34 @@ class BaiscInit():
 
 # Sprite Class for The main player 
 class Player(pygame.sprite.Sprite):
+    """The main player class"""
     def __init__(self):
         super().__init__()
         self.image = pygame.image.load('assets/main.png').convert_alpha()
         self.rect = self.image.get_rect(midbottom = (412, 580))
 
 class Bullets(pygame.sprite.Sprite):
+    """The Bullet class"""
     def __init__(self, player_x, player_y):
         super().__init__()
         self.image = pygame.image.load('assets/bullet.png').convert_alpha()
         self.rect = self.image.get_rect(center = (player_x+32, player_y+30))
+
+class Enemy(pygame.sprite.Sprite):
+    """The Enemy class"""
+    def __init__(self, type, position_x, position_y):
+        super().__init__()
+        if type == 'enemy1':
+            self.image = pygame.image.load('assets/enemy1.png').convert_alpha()
+            self.rect = self.image.get_rect(midbottom = (position_x, position_y))
+        elif type == 'enemy2':
+            self.image = pygame.image.load('assets/enemy2.png').convert_alpha()
+            self.rect = self.image.get_rect(midbottom = (position_x, position_y))
+        elif type == 'enemy3':
+            self.image = pygame.image.load('assets/enemy3.png').convert_alpha()
+            self.rect = self.image.get_rect(midbottom = (position_x, position_y))
+        else:
+            return "invalid"
 
 def main():
     # Making a window
@@ -48,7 +66,8 @@ def main():
     player_x_change = 0
     # The bullet inside the game loop 
     bullet = Bullets(player.rect.x, player.rect.y)
-
+    
+    enemy1 = Enemy('enemy1', 300, 500)
     # this var determines if the program is running 
     running = True
     
@@ -91,13 +110,15 @@ def main():
 
         # The bullet inside the game loop 
         # bullet = Bullets(player.rect.x, player.rect.y)
-
+        
         # Displaying the bullet 
         screen.blit(bullet.image, bullet.rect)
         
         # Making the bullet move
         bullet.rect.y -= 1
-
+        
+        # showing all the enemies on screen 
+        screen.blit(enemy1.image, enemy1.rect)
 
         pygame.display.flip()
 
