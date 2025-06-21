@@ -92,11 +92,10 @@ def main():
 
         player.rect.x += player_x_change
         # Making borders
-        if player.rect.x > 800:
-            player.rect.x = 0
-
         if player.rect.x <= 0:
-            player.rect.x = 800
+            player.rect.x = 0
+        elif player.rect.x >= 736:
+            player.rect.x = 736
         # Making the bullet reapper
         if bullet.rect.y <= 0:
             bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
