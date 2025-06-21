@@ -45,7 +45,10 @@ def main():
     
     # the plater 
     player = Player()
-    
+
+    # The bullet inside the game loop 
+    bullet = Bullets(player.rect.x, player.rect.y)
+
 
     # this var determines if the program is running 
     running = True
@@ -65,9 +68,10 @@ def main():
                     player.rect.x -= 20
                 if event.key == pygame.K_q:
                     sys.exit()
-        print(player.rect.x)
         if player.rect.x > 800:
             player.rect.x = 800
+
+
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
@@ -75,13 +79,14 @@ def main():
         screen.blit(player.image, player.rect)
 
         # The bullet inside the game loop 
-        bullet = Bullets(player.rect.x, player.rect.y)
+        # bullet = Bullets(player.rect.x, player.rect.y)
 
         # Displaying the bullet 
         screen.blit(bullet.image, bullet.rect)
         
         # Making the bullet move
-        bullet.rect.y -= 5
+        bullet.rect.y -= 1
+
 
         pygame.display.flip()
 
