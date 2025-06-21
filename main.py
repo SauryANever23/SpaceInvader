@@ -45,10 +45,9 @@ def main():
     
     # the plater 
     player = Player()
-
+    player_x_change = 0
     # The bullet inside the game loop 
     bullet = Bullets(player.rect.x, player.rect.y)
-    bullet1 = Bullets(player.rect.x, player.rect.y+10)
 
     # this var determines if the program is running 
     running = True
@@ -63,11 +62,16 @@ def main():
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_d:
-                    player.rect.x += 20
+                    player_x_change = 1
                 if event.key == pygame.K_a:
-                    player.rect.x -= 20
+                    player_x_change = -1
                 if event.key == pygame.K_q:
                     sys.exit()
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_d or event.key == pygame.K_a:
+                    player_x_change = 0
+
+        player.rect.x += player_x_change
         # Making borders
         if player.rect.x > 800:
             player.rect.x = 0
@@ -77,11 +81,7 @@ def main():
         # Making the bullet reapper
         if bullet.rect.y <= 0:
             bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
-        # Making the bullet reapper
-        if bullet1.rect.y <= 0:
-            bullet1.rect.x, bullet1.rect.y = player.rect.x+20, player.rect.y+10
         
-
 
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
@@ -94,11 +94,9 @@ def main():
 
         # Displaying the bullet 
         screen.blit(bullet.image, bullet.rect)
-        screen.blit(bullet1.image, bullet1.rect)
         
         # Making the bullet move
         bullet.rect.y -= 1
-        bullet1.rect.y -= 1
 
 
         pygame.display.flip()
