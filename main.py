@@ -108,7 +108,7 @@ def main():
         screen.blit(player.image, player.rect)
 
         # The bullet inside the game loop 
-        # bullet = Bullets(player.rect.x, player.rect.y)
+        # bullet = Bullets(player.rect.x, player.rect.y    main()
         
         # Displaying the bullet 
         screen.blit(bullet.image, bullet.rect)
