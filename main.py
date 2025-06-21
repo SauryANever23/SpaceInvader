@@ -72,7 +72,7 @@ def main():
             player.rect.x = 800
         
         if bullet.rect.y <= 0:
-            bullet.rect.x, bullet.rect.y = player.rect.x, player.rect.y
+            bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
 
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
