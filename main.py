@@ -1,4 +1,5 @@
-import pygame 
+import pygame
+import random
 import sys
 # Initializing pygame 
 pygame.init()
@@ -67,7 +68,7 @@ def main():
     # The bullet inside the game loop 
     bullet = Bullets(player.rect.x, player.rect.y)
     
-    enemy1 = Enemy('enemy1', 300, 500)
+    enemy1 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 100))
     # this var determines if the program is running 
     running = True
     
