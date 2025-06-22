@@ -139,7 +139,7 @@ def main():
 
         # Enemy Movement 
         speed = random.randint(1, 4)
-        enemy_movement(enemy1, speed)
+        # enemy_movement(enemy1, speed) # The code is dangerious, don't run now
 
         # Making the bullet reapper
         # Bullets.bullet_mechnism(bullet) 
