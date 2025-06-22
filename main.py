@@ -39,6 +39,9 @@ class Bullets(pygame.sprite.Sprite):
         self.image = pygame.image.load('assets/bullet.png').convert_alpha()
         self.rect = self.image.get_rect(center = (player_x+32, player_y+30))
 
+    def bullet_mechnism(self):
+
+
 class Enemy(pygame.sprite.Sprite):
     """The Enemy class"""
     def __init__(self, type, position_x, position_y):
@@ -69,8 +72,11 @@ def main():
     # Title 
     BaiscInit.set_title("Space Invader")
     
-    # the plater 
-    player = Player()
+    ## Groups 
+
+    # Player
+    player = pygame.sprite.GroupSingle()
+    player.add(player())
     player_x_change = 0
     # The bullet inside the game loop 
     bullet = Bullets(player.rect.x, player.rect.y)
@@ -117,7 +123,7 @@ def main():
         if bullet.rect.y <= 0:
             bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
        
-        
+         
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
