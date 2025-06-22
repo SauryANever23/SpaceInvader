@@ -40,6 +40,11 @@ class Bullets(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center = (player_x+32, player_y+30))
 
     def bullet_mechnism(self):
+        """Making the bullet reapper"""
+        if bullet.rect.y <= 0:
+            bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
+
+
 
 
 class Enemy(pygame.sprite.Sprite):
@@ -58,7 +63,7 @@ class Enemy(pygame.sprite.Sprite):
         else:
             return "invalid"
         
-        def enemy_movement(self):
+        def enemy_movement(x_pos, y_pos):
             """This function will move the enemy, from left to right and vice verse."""
             change = random.randint(1, 5)
             while self.rect.x != 736:
@@ -75,14 +80,17 @@ def main():
     ## Groups 
 
     # Player
-    player = pygame.sprite.GroupSingle()
-    player.add(player())
+    player = Player()
     player_x_change = 0
-    # The bullet inside the game loop 
+
+    # The bullet inside the game loop / Group for Bullet 
     bullet = Bullets(player.rect.x, player.rect.y)
+    # bullet.add(Bullets(player.rect.x, player.rect.y)) 
     
+    # Enemy Group
     enemy1 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 100))
-    def set_boundaries():
+
+    def set_boundaries(player, bullet) -> None:
         """This function gives the player the border""" 
         if player.rect.x <= 0:
             player.rect.x = 0
@@ -92,6 +100,14 @@ def main():
         if bullet.rect.y <= 0:
             bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
 
+    def enemy_movement(enemy: Enemy, change: int) -> None:
+        """This function will move the enemy, from left to right and vice verse."""
+        change = random.randint(1, 7)
+        enemy.rect.x += change
+        if enemy.rect.x >= 736:
+            enemy.rect.x -= change 
+        elif enemy.rect.x <= 0:
+            enemy_movement(enemy)
 
     # this var determines if the program is running 
     running = True
@@ -117,11 +133,13 @@ def main():
 
         player.rect.x += player_x_change
         # Making borders
-        set_boundaries()
+        set_boundaries(player, bullet)
+
+        # Enemy Movement 
+        enemy_movement(enemy1)
 
         # Making the bullet reapper
-        if bullet.rect.y <= 0:
-            bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
+        # Bullets.bullet_mechnism(bullet) 
        
          
         # setting the screen color to grey 
