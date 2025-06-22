@@ -105,9 +105,11 @@ def main():
         change = random.randint(1, 7)
         enemy.rect.x += change
         if enemy.rect.x >= 736:
-            enemy.rect.x -= change 
+            while enemy.rect.x != 0:
+                enemy.rect.x -= change 
         elif enemy.rect.x <= 0:
-            enemy_movement(enemy)
+            while enemy.rect.x != 736:
+                enemy.rect.x += change
 
     # this var determines if the program is running 
     running = True
@@ -136,7 +138,8 @@ def main():
         set_boundaries(player, bullet)
 
         # Enemy Movement 
-        enemy_movement(enemy1)
+        speed = random.randint(1, 4)
+        enemy_movement(enemy1, speed)
 
         # Making the bullet reapper
         # Bullets.bullet_mechnism(bullet) 
