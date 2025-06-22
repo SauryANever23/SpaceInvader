@@ -22,7 +22,7 @@ class BaiscInit():
     def set_icon():
         icon = pygame.image.load("assets/main.png")
         pygame.display.set_icon(icon)
-
+    
 
 # Sprite Class for The main player 
 class Player(pygame.sprite.Sprite):
@@ -54,6 +54,13 @@ class Enemy(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(midbottom = (position_x, position_y))
         else:
             return "invalid"
+        
+        def enemy_movement(self):
+            """This function will move the enemy, from left to right and vice verse."""
+            change = random.randint(1, 5)
+            while self.rect.x != 736:
+                change = random.randint(1, 7)
+                self.rect.x += change 
 
 def main():
     # Making a window
@@ -69,6 +76,17 @@ def main():
     bullet = Bullets(player.rect.x, player.rect.y)
     
     enemy1 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 100))
+    def set_boundaries():
+        """This function gives the player the border""" 
+        if player.rect.x <= 0:
+            player.rect.x = 0
+        elif player.rect.x >= 736:
+            player.rect.x = 736
+        # Making the bullet reapper
+        if bullet.rect.y <= 0:
+            bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
+
+
     # this var determines if the program is running 
     running = True
     
@@ -93,15 +111,13 @@ def main():
 
         player.rect.x += player_x_change
         # Making borders
-        if player.rect.x <= 0:
-            player.rect.x = 0
-        elif player.rect.x >= 736:
-            player.rect.x = 736
+        set_boundaries()
+
         # Making the bullet reapper
         if bullet.rect.y <= 0:
             bullet.rect.x, bullet.rect.y = player.rect.x+20, player.rect.y
+       
         
-
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
