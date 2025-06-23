@@ -1,6 +1,9 @@
 import pygame
 import random
 import sys
+import time 
+import math 
+
 # Initializing pygame 
 pygame.init()
 
@@ -145,7 +148,8 @@ def main():
         # Making the bullet reapper
         # Bullets.bullet_mechnism(bullet) 
        
-         
+        if enemy1.rect.colliderect(bullet):
+            enemy1.rect.x = random.randint(0, 736)
         # setting the screen color to grey 
         screen.fill((50, 50, 50))
         
