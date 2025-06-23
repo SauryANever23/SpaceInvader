@@ -136,6 +136,7 @@ def main():
         player.rect.x += player_x_change
         # Making borders
         set_boundaries(player, bullet)
+        
 
         # Enemy Movement 
         speed = random.randint(1, 4)
