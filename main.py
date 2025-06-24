@@ -1,8 +1,6 @@
 import pygame
 import random
 import sys
-import time 
-import math 
 
 # Initializing pygame 
 pygame.init()
@@ -80,8 +78,6 @@ def main():
     # Title 
     BaiscInit.set_title("Space Invader")
     
-    ## Groups 
-
     # Player
     player = Player()
     player_x_change = 0
