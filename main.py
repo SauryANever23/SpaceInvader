@@ -112,6 +112,9 @@ def main():
     
     def update_pos():
         """This function updates the enemies"""
+        # Need to rewrite everthing in the function 
+        # Then adding the bliting in the screen 
+        # Changing everything that we way to be done 
         counter = 0 # This variable sets the counter 
         enemy_list = [enemy1, enemy2]
         enemy = enemy_list[0]
