@@ -113,6 +113,10 @@ def main():
     def update_pos():
         """This function updates the enemies"""
         counter = 0 # This variable sets the counter 
+        enemy_list = [enemy1, enemy2]
+        enemy = enemy_list[0]
+        if enemy.colliderect(bullet):
+            counter += 1
 
     # this var determines if the program is running 
     running = True
@@ -123,7 +127,7 @@ def main():
         for event in pygame.event.get(): # getting the event from pygame.event.get()
             if event.type == pygame.QUIT:
                 running = False
-                sys.exit()
+                sys.exit()()
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_d:
