@@ -117,7 +117,10 @@ def main():
         enemy = enemy_list[0]
         if enemy.colliderect(bullet):
             counter += 1
-
+            if counter == 5:
+                enemy = enemy_list[1]
+                counter = 0
+                
     # this var determines if the program is running 
     running = True
     
