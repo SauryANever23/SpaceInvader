@@ -153,7 +153,9 @@ def main():
 
         # Making the bullet reapper
         # Bullets.bullet_mechnism(bullet) 
-       
+        
+        # Calling function for updating enemy 
+        update_pos()
         if enemy1.rect.colliderect(bullet):
             enemy1.rect.x = random.randint(0, 736)
         # setting the screen color to grey 
