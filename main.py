@@ -88,7 +88,7 @@ def main():
     
     # Enemy Group
     enemy1 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 100))
-    ememy2 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 150``))
+    ememy2 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 150))
     def set_boundaries(player, bullet) -> None:
         """This function gives the player the border""" 
         if player.rect.x <= 0:
