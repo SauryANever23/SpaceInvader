@@ -110,6 +110,10 @@ def main():
             while enemy.rect.x != 736:
                 enemy.rect.x += change
     
+    def update_pos():
+        """This function updates the enemies"""
+        counter = 0 # This variable sets the counter 
+
     # this var determines if the program is running 
     running = True
     
