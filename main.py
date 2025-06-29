@@ -88,7 +88,7 @@ def main():
     
     # Enemy Group
     enemy1 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 100))
-
+    ememy2 = Enemy('enemy1', random.randint(0, 800), random.randint(50, 150``))
     def set_boundaries(player, bullet) -> None:
         """This function gives the player the border""" 
         if player.rect.x <= 0:
@@ -109,7 +109,7 @@ def main():
         elif enemy.rect.x <= 0:
             while enemy.rect.x != 736:
                 enemy.rect.x += change
-
+    
     # this var determines if the program is running 
     running = True
     
@@ -136,7 +136,6 @@ def main():
         # Making borders
         set_boundaries(player, bullet)
         
-
         # Enemy Movement 
         speed = random.randint(1, 4)
         # enemy_movement(enemy1, speed) # The code is dangerious, don't run now
